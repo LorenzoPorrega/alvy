@@ -13,6 +13,4 @@ Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-Route::get('/counter', Counter::class);
-
 require __DIR__ . '/auth.php';
