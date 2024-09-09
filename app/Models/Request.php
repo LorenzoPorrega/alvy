@@ -7,40 +7,27 @@ use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model
 {
-  use HasFactory;
+    use HasFactory;
 
-  /**
-   * The attributes that are mass assignable.
-   *
-   * @var array<int, string>
-   */
-  protected $fillable = [
-    'name',
-    'method',
-    'url',
-    'query_params',
-    'headers',
-    'body'
-  ];
-
-  /**
-   * The attributes that should be hidden for serialization.
-   *
-   * @var array<int, string>
-   */
-  protected $hidden = [
-    //
-  ];
-
-  /**
-   * Get the attributes that should be cast.
-   *
-   * @return array<string, string>
-   */
-  protected function casts(): array
-  {
-    return [
-      //
+    protected $fillable = [
+        'name',
+        'method_id',  // Changed from 'method' to 'method_id'
+        'url',
+        'query_params',
+        'headers',
+        'body',
+        'list_id'
     ];
-  }
+
+    // Many-to-one relationship: a Request belongs to a Method
+    public function method()
+    {
+        return $this->belongsTo(Method::class);
+    }
+
+    // Optional many-to-one relationship: a Request may belong to a List
+    public function list()
+    {
+        return $this->belongsTo(RequestList::class);
+    }
 }

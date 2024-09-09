@@ -2,9 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Method;
+use App\Models\RequestList;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Env;
-use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Request>
@@ -19,17 +19,18 @@ class RequestFactory extends Factory
   public function definition(): array
   {
     return [
-      'name' => 'Geoapify City Places',
-      'method' => 'get',
+      'method_id' => Method::inRandomOrder()->first()->id,
+      'list_id' => RequestList::inRandomOrder()->first()->id,
+      'name' => $this->faker->sentence(3),
       'url' => 'https://api.geoapify.com/v2/',
       'query_params' => json_encode([
-        'categories' => ['commercial'],
-        'filter' => 'place:51d865388da2c01e405902e3917989894640f00101f901d8ab000000000000c00206920306546f72696e6f',
-        'limit' => '20',
-        'api_key' => Env('GEOAPIFY_KEY'),
+        'categories' => $this->faker->randomElement([['commercial'], ['residential'], ['education']]),
+        'filter' => "place:51d865388da2c01e405902e3917989894640f00101f901d8ab000000000000c00206920306546f72696e6f",
+        'limit' => 20,
+        'api_key' => env('GEOAPIFY_KEY'),
       ]),
       'headers' => '',
-      'body' => ''
+      'body' => '',
     ];
   }
 }
