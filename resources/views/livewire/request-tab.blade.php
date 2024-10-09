@@ -1,4 +1,4 @@
-<div>
+{{-- <div>
   @if ($request)
     <div class="request-details">
       <h2>{{ $request['title'] }}</h2>
@@ -9,4 +9,5 @@
   @else
     <p>Nessuna request selezionata.</p>
   @endif
-</div>
+</div> --}}
+<span>Ciao</span>

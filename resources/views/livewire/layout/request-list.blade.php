@@ -12,7 +12,7 @@
     </svg>
   </button>
 
-  <div x-show="open" x-transition.duration.50ms class="px-4">
+  <div x-show="open" class="px-4">
     <ul>
       @foreach ($requests as $request)
         <li wire:click="selectRequest({{ $request->id }})">
