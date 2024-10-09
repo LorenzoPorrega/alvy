@@ -30,7 +30,7 @@
   <livewire:layout.aside />
   <div class="flex flex-col flex-1 overflow-hidden">
     <livewire:layout.navigation />
-
+    <livewire:layout.request-tab />
     {{-- <main class="flex-1 overflow-x-hidden overflow-y-auto">
       @if (isset($header))
         <header class="bg-white dark:bg-gray-900 shadow">

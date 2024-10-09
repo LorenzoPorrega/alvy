@@ -17,9 +17,11 @@
     </div>
 
     <div class="py-4">
-      @foreach ($requestsLists as $requestsList)
-        @livewire('layout\request-list', ['requestsList' => $requestsList], key($requestsList->name))
-      @endforeach
+      <ul>
+        @foreach ($requestsLists as $requestsList)
+          @livewire('layout\request-list', ['requestsList' => $requestsList], key($requestsList->name))
+        @endforeach
+      </ul>
     </div>
 
   </div>

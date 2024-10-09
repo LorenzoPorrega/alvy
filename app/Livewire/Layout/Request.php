@@ -15,11 +15,6 @@ class Request extends Component
     $this->request = $request;
   }
 
-  public function selectRequest($requestId)
-  {
-    $request = ModelRequest::find($requestId);
-    $this->emit('requestSelected', $request);
-  }
 
   public function render()
   {
