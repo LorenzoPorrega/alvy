@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.app-body{
-  background-color: rgb(17, 24, 39);
+/* :root{
+  --honey-yellow: rgb(250, 154, 0);
+} */
+
+#nprogress .bar {
+  background: #fa9a00 !important;
 }

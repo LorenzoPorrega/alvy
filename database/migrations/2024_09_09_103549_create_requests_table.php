@@ -4,23 +4,23 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateRequestsTable extends Migration
 {
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('requests', function (Blueprint $table) {
-            $table->id();
+            $table->id(); // Colonna id
             $table->string('name');
-            $table->foreignId('method_id')->constrained('methods')->onDelete('cascade');
-            $table->foreignId('list_id')->nullable()->constrained('lists')->onDelete('set null');
-            $table->text('url');
-            $table->text('query_params');
+            $table->string('method_id'); // Assicurati che questo sia definito nel tuo database
+            $table->string('url');
+            $table->text('query_params')->nullable();
             $table->text('headers')->nullable();
             $table->text('body')->nullable();
             $table->timestamps();
+            // Nota: non creiamo qui la chiave esterna
         });
     }
 

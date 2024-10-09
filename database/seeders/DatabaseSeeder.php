@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
     foreach ($methodIds as $methodId) {
       Request::factory()->create([
         'method_id' => $methodId,
-        'list_id' => $lists[0]->id, // First list
+        'requests_list_id' => $lists[0]->id, // First list
       ]);
     }
 
@@ -50,20 +50,20 @@ class DatabaseSeeder extends Seeder
       // Create requests in the first list
       Request::factory()->count($remainingRequests / 2)->create([
         'method_id' => $methodIds[array_rand($methodIds)], // Random method
-        'list_id' => $lists[0]->id, // First list
+        'requests_list_id' => $lists[0]->id, // First list
       ]);
 
       // Create requests in the second list
       Request::factory()->count($remainingRequests / 2)->create([
         'method_id' => $methodIds[array_rand($methodIds)], // Random method
-        'list_id' => $lists[1]->id, // Second list
+        'requests_list_id' => $lists[1]->id, // Second list
       ]);
     }
 
-    // Add requests without a list (list_id null)
+    // Add requests without a list (requests_list_id null)
     Request::factory()->count(2)->create([
       'method_id' => $methodIds[array_rand($methodIds)], // Random method
-      'list_id' => null, // No list
+      'requests_list_id' => null, // No list
     ]);
   }
 }

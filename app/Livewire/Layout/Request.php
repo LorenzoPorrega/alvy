@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Layout;
 
-use App\Models\Request as ModelsRequest;
+use App\Models\Request as ModelRequest;
 use Livewire\Component;
 
 class Request extends Component
@@ -10,8 +10,15 @@ class Request extends Component
 
   public $request;
 
-  public function mount(ModelsRequest $request){
+  public function mount(ModelRequest $request)
+  {
     $this->request = $request;
+  }
+
+  public function selectRequest($requestId)
+  {
+    $request = ModelRequest::find($requestId);
+    $this->emit('requestSelected', $request);
   }
 
   public function render()

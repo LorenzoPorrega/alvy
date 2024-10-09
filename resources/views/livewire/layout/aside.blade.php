@@ -1,9 +1,9 @@
 <aside class="border-r border-solid border-gray-700">
-  <div class="h-full min-w-48 px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+  <div class="h-full min-w-48 max-w-72 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
 
-    <div class="flex h-12">
-      <div class="self-center">
-        <svg fill="#fa9a00" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <div class="flex h-12 px-3">
+      <div class="self-center min-w-12">
+        <svg fill="#fa9a00" width="50px" height="50px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
           <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
           <g id="SVGRepo_iconCarrier">
@@ -16,10 +16,11 @@
       <span class="self-center ms-2 text-2xl font-bold text-gray-800 dark:text-gray-300">Alvy</span>
     </div>
 
-    <ul class="py-4">
-      @foreach ($requests as $request)
-        @livewire('layout\request', ['request' => $request], key($request->name))
+    <div class="py-4">
+      @foreach ($requestsLists as $requestsList)
+        @livewire('layout\request-list', ['requestsList' => $requestsList], key($requestsList->name))
       @endforeach
-    </ul>
+    </div>
+
   </div>
 </aside>

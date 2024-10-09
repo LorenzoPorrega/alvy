@@ -19,8 +19,8 @@ class RequestFactory extends Factory
   public function definition(): array
   {
     return [
+      'requests_list_id' => RequestList::inRandomOrder()->first()->id,
       'method_id' => Method::inRandomOrder()->first()->id,
-      'list_id' => RequestList::inRandomOrder()->first()->id,
       'name' => $this->faker->sentence(3),
       'url' => 'https://api.geoapify.com/v2/',
       'query_params' => json_encode([

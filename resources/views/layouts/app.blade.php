@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark bg-white dark:bg-gray-900">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="bg-white dark:bg-gray-900">
 
 <head>
   <meta charset="utf-8">
@@ -31,7 +31,7 @@
   <div class="flex flex-col flex-1 overflow-hidden">
     <livewire:layout.navigation />
 
-    <main class="flex-1 overflow-x-hidden overflow-y-auto">
+    {{-- <main class="flex-1 overflow-x-hidden overflow-y-auto">
       @if (isset($header))
         <header class="bg-white dark:bg-gray-900 shadow">
           <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
@@ -40,7 +40,7 @@
         </header>
       @endif
       {{ $slot }}
-    </main>
+    </main> --}}
   </div>
 </body>
 
