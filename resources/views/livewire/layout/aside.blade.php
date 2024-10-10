@@ -1,5 +1,5 @@
 <aside class="border-r border-solid border-gray-700">
-  <div class="h-full min-w-48 max-w-72 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+  <div class="h-full w-56 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
 
     <div class="flex h-12 px-3">
       <div class="self-center min-w-12">

@@ -17,8 +17,7 @@ class Aside extends Component
   public function render()
   {
     return view(
-      'livewire.layout.aside',
-      ['requestsLists' => $this->requestsLists]
+      'livewire.layout.aside'
     );
   }
 }

@@ -11,7 +11,6 @@ class RequestList extends Component
 {
   public $requestsList;
   public $requests = [];
-  public $expanded = false;
 
   public function mount(ModelsRequestList $requestsList)
   {
@@ -25,16 +24,13 @@ class RequestList extends Component
     }
   }
 
-  public function selectRequest($requestId)
+  public function selectRequestsList($requestsListId)
   {
-    $request = ModelRequest::find($requestId);
-    $this->emit('requestSelected', $request);
+    $this->dispatch('requestsListSelected', $requestsListId); // Emette solo l'ID
   }
 
   public function render()
   {
-    return view('livewire.layout.request-list', [
-      'requests' => $this->requests
-    ]);
+    return view('livewire.layout.request-list');
   }
 }

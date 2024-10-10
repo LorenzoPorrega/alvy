@@ -21,7 +21,7 @@ class RequestFactory extends Factory
     return [
       'requests_list_id' => RequestList::inRandomOrder()->first()->id,
       'method_id' => Method::inRandomOrder()->first()->id,
-      'name' => $this->faker->sentence(3),
+      'name' => ucfirst($this->faker->word()),
       'url' => 'https://api.geoapify.com/v2/',
       'query_params' => json_encode([
         'categories' => $this->faker->randomElement([['commercial'], ['residential'], ['education']]),

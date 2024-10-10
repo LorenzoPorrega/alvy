@@ -1,4 +1,4 @@
-<li class="dark" x-data="{ open: false }">
+<li class="dark" x-data="{ open: false }" wire:click="selectRequestsList({{ $requestsList->id }})">
   <button @click="open = !open; if (open) { $wire.loadRequests() }"
     class="w-full flex items-center justify-between text-sm font-medium text-gray-800 dark:text-gray-200
           truncate select-none flex-row justify-items-center px-3 my-1.5 cursor-pointer
@@ -12,7 +12,7 @@
     </svg>
   </button>
 
-  <div x-show="open" class="px-4">
+  <div x-show="open">
     <ul>
       @foreach ($requests as $request)
         <li wire:click="selectRequest({{ $request->id }})">

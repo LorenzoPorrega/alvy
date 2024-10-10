@@ -15,6 +15,10 @@ class Request extends Component
     $this->request = $request;
   }
 
+  public function selectRequest()
+  {
+    $this->dispatch('requestSelected', $this->request->id);  // Emette l'ID della Request selezionata
+  }
 
   public function render()
   {
