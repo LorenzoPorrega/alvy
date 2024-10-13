@@ -1,4 +1,5 @@
-<li class="dark" x-data="{ open: false }" wire:click="selectRequestsList({{ $requestsList->id }})">
+<li class="dark" x-data="{ open: false }"
+  wire:click="selectRequestsList({{ $requestsList->id }}),expandedRequestsList({{ $requestsList->id }})">
   <button @click="open = !open; if (open) { $wire.loadRequests() }"
     class="w-full flex items-center justify-between text-sm font-medium text-gray-800 dark:text-gray-200
           truncate select-none flex-row justify-items-center px-3 my-1.5 cursor-pointer
@@ -16,7 +17,7 @@
     <ul>
       @foreach ($requests as $request)
         <li wire:click="selectRequest({{ $request->id }})">
-          @livewire('layout\request', ['request' => $request], key($request->name))
+          <livewire:layout.request :request="$request" :key="$request->id" />
         </li>
       @endforeach
     </ul>

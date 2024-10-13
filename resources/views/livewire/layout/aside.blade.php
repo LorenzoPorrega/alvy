@@ -19,7 +19,7 @@
     <div class="py-4">
       <ul>
         @foreach ($requestsLists as $requestsList)
-          @livewire('layout\request-list', ['requestsList' => $requestsList], key($requestsList->name))
+          <livewire:layout.request-list :requestsList="$requestsList" :key="$requestsList->id" />
         @endforeach
       </ul>
     </div>
