@@ -13,7 +13,7 @@
           </g>
         </svg>
       </div>
-      <span class="self-center ms-2 text-2xl font-bold text-gray-800 dark:text-gray-300">Alvy</span>
+      <span class="self-center ms-2 text-2xl font-bold text-gray-800 dark:text-gray-300">ALVY</span>
     </div>
 
     <div class="py-4">
