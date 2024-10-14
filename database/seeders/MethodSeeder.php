@@ -15,49 +15,49 @@ class MethodSeeder extends Seeder
         // HTTP method definition
         $methods = [
             [
-                'name' => 'GET',
+                'type' => 'GET',
                 'bg_color' => 'bg-green-500',
                 'text_color' => 'text-white',
                 'dark_bg_color' => 'dark:bg-green-600',
                 'dark_text_color' => 'dark:text-white'
             ],
             [
-                'name' => 'POST',
+                'type' => 'POST',
                 'bg_color' => 'bg-blue-500',
                 'text_color' => 'text-white',
                 'dark_bg_color' => 'dark:bg-blue-600',
                 'dark_text_color' => 'dark:text-white'
             ],
             [
-                'name' => 'PUT',
+                'type' => 'PUT',
                 'bg_color' => 'bg-yellow-500',
                 'text_color' => 'text-black',
                 'dark_bg_color' => 'dark:bg-yellow-600',
                 'dark_text_color' => 'dark:text-black'
             ],
             [
-                'name' => 'DELETE',
+                'type' => 'DELETE',
                 'bg_color' => 'bg-red-500',
                 'text_color' => 'text-white',
                 'dark_bg_color' => 'dark:bg-red-600',
                 'dark_text_color' => 'dark:text-white'
             ],
             [
-                'name' => 'PATCH',
+                'type' => 'PATCH',
                 'bg_color' => 'bg-purple-500',
                 'text_color' => 'text-white',
                 'dark_bg_color' => 'dark:bg-purple-600',
                 'dark_text_color' => 'dark:text-white'
             ],
             [
-                'name' => 'OPTIONS',
+                'type' => 'OPTIONS',
                 'bg_color' => 'bg-teal-500',
                 'text_color' => 'text-white',
                 'dark_bg_color' => 'dark:bg-teal-600',
                 'dark_text_color' => 'dark:text-white'
             ],
             [
-                'name' => 'HEAD',
+                'type' => 'HEAD',
                 'bg_color' => 'bg-gray-500',
                 'text_color' => 'text-white',
                 'dark_bg_color' => 'dark:bg-gray-600',
@@ -67,7 +67,7 @@ class MethodSeeder extends Seeder
 
         // Insert each unique method in the methods table
         foreach ($methods as $method) {
-            Method::updateOrCreate(['name' => $method['name']], $method);
+            Method::updateOrCreate(['type' => $method['type']], $method);
         }
     }
 }

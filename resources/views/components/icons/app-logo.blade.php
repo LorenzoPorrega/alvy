@@ -1,4 +1,4 @@
-<svg fill="{{ $fill ?? '#fa9a00' }}" width="{{ $width ?? '50px' }}" height="{{ $height ?? '50px' }}" viewBox="0 0 24 24"
+<svg fill="{{ $fill ?? '#fa9a00' }}" class="{{ $class ?? '' }}" width="{{ $width ?? '50px' }}" height="{{ $height ?? '50px' }}" opacity="{{ $opacity ?? '' }}" viewBox="0 0 24 24"
   xmlns="http://www.w3.org/2000/svg">
   <g id="SVGRepo_iconCarrier">
     <path

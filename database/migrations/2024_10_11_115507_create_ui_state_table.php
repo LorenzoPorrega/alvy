@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('ui_state', function (Blueprint $table) {
             $table->id();
 
-            $table->text('expanded_requestslists')->nullable();
-            $table->text('open_requests')->nullable();
+            // $table->text('expanded_requestslists')->nullable();
+            // $table->text('open_requests')->nullable();
+            $table->text('opened_tabs')->nullable();
 
             $table->timestamps();
         });

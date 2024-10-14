@@ -13,8 +13,8 @@ class CreateRequestsTable extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id(); // Colonna id
-            $table->string('name');
-            $table->string('method_id'); // Assicurati che questo sia definito nel tuo database
+            $table->string('title');
+            // $table->string('method_id');
             $table->string('url');
             $table->text('query_params')->nullable();
             $table->text('headers')->nullable();

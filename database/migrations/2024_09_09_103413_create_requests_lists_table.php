@@ -13,7 +13,7 @@ class CreateRequestsListsTable extends Migration
     {
         Schema::create('requests_lists', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('title');
             $table->text('description')->nullable();
             $table->timestamps();
         });

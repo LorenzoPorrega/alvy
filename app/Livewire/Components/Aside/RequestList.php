@@ -13,35 +13,25 @@ class RequestList extends Component
 {
   public $requestsList;
   public $requests = [];
-  public $expandedRequestsLists = [];
 
   public function mount(ModelsRequestList $requestsList)
   {
     $userId = Auth::id();
     $this->requestsList = $requestsList;
-    $this->expandedRequestsLists = DB::table('ui_state')->where('user_id', $userId)
-      ->value('expanded_requestslists');
+    // $this->expandedRequestsLists = DB::table('ui_state')->where('user_id', $userId)
+    //   ->value('expanded_requestslists');
   }
 
+  // Double clicking on chevron corrupts requests
   public function loadRequests()
   {
     if (empty($this->requests)) {
-      $this->requests = $this->requestsList->requests()->get();
+      $this->requests = $this->requestsList->requests()->with('method')->get();
     }
-  }
-
-  public function selectRequestsList($requestsListId)
-  {
-    $this->dispatch('requestsListSelected', $requestsListId);
-  }
-
-  public function expandedRequestsList($requestsListId)
-  {
-    $this->expandedRequestsLists[] = $requestsListId;
   }
 
   public function render()
   {
-    return view('livewire.layout.request-list');
+    return view('livewire.components.aside.request-list');
   }
 }

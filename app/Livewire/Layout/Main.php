@@ -3,68 +3,35 @@
 namespace App\Livewire\Layout;
 
 use Livewire\Component;
-use App\Models\RequestList as RequestList;
-use App\Models\Request as Request;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Locked;
 
 class Main extends Component
 {
-    public $openTabs = [];
-    public $selectedTab = null;
+  public $openedTabs = [];
 
-    protected $listeners = [
-        'requestsListSelected' => 'addRequestsListTab',
-        'requestSelected' => 'addRequestTab',
-        'closeRequest' => 'removeTab',
-    ];
-
-    public function addRequestsListTab($requestListId)
-    {
-        $requestList = RequestList::find($requestListId);
-
-        if (!$requestList) {
-            return;
-        }
-
-        if (!array_key_exists("list-{$requestList->id}", $this->openTabs)) {
-            $this->openTabs["list-{$requestList->id}"] = [
-                'type' => 'list',
-                'id' => $requestList->id,
-                'name' => $requestList->name,
-            ];
-        }
-
-        $this->selectedTab = "list-{$requestList->id}";
+  #[On('openTab')]
+  public function openTab($id, $type)
+  {
+    $isPresent = false;
+    $count = 1;
+    foreach ($this->openedTabs as $tab) {
+      $count++;
+      if ($tab['id'] === $id && $tab['type'] === $type) {
+        $isPresent = true;
+      }
     }
 
-    public function addRequestTab($requestId)
-    {
-        $request = Request::find($requestId);
-
-        if (!$request) {
-            return;
-        }
-
-        if (!array_key_exists("request-{$request->id}", $this->openTabs)) {
-            $this->openTabs["request-{$request->id}"] = [
-                'type' => 'request',
-                'id' => $request->id,
-                'name' => $request->name,
-            ];
-        }
-
-        $this->selectedTab = "request-{$request->id}";
+    if (!$isPresent) {
+      $this->openedTabs[$count] = [
+        'id' => $id,
+        'type' => $type,
+      ];
     }
+  }
 
-    public function selectTab($tabId)
-    {
-        $this->selectedTab = $tabId;
-    }
-
-    public function render()
-    {
-        return view('livewire.layout.main', [
-            'openTabs' => $this->openTabs,
-            'selectedTab' => $this->selectedTab,
-        ]);
-    }
+  public function render()
+  {
+    return view('livewire.layout.main');
+  }
 }
