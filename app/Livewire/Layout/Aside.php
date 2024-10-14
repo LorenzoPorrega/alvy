@@ -20,7 +20,7 @@ class Aside extends Component
   public function mount()
   {
     $this->requestsLists = RequestList::all(); // Double click on chevron corrupts requests
-    // $this->requestsLists = RequestList::with('requests')->get();
+    // $this->requestsLists = RequestList::with('requests')->get(); // Double clicking on chevron corrupts requests
   }
 
   public function render()
