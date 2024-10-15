@@ -5,8 +5,6 @@ namespace App\Livewire\Components\Aside;
 use App\Models\RequestList as ModelsRequestList;
 use App\Models\Request as Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class RequestList extends Component

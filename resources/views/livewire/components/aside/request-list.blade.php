@@ -1,5 +1,5 @@
 <!-- RequestsList -->
-<li x-data="{ open: false }" wire:click="$dispatch('openTab', { id: {{ $requestsList->id }}, type: 'requestsList' })">
+<li x-data="{ open: false }" wire:click="$dispatch('openTab', { id: {{ $requestsList->id }}, type: 'requestsList', title: '{{ $requestsList->title }}' })">
   <button
     class="w-full flex items-center justify-between text-sm font-medium text-gray-800
         dark:text-gray-200 truncate select-none flex-row justify-items-center px-3
@@ -7,7 +7,8 @@
         focus-within:border-honey-500 border-l-2 border-l-transparent
           focus-within:border-l-2 transition-colors duration-300 ease-in-out">
 
-    <div x-on:click.stop="open = !open{{-- Double clicking on chevron corrupts requests; if (open) { $wire.loadRequests() } --}}"
+    <div x-on:click.stop="open = !open"
+      {{-- wire:click="loadRequests" --}}
       class="text-gray-800 dark:text-gray-200 hover:bg-slate-200  
           hover:dark:bg-slate-500 rounded">
       <svg :class="{ 'rotate-90': open, 'rotate-0': !open }" class="w-5 h-5 transition-transform duration-200 transform"
@@ -25,7 +26,7 @@
   <div x-show="open">
     <ul>
       @foreach ($requests as $request)
-        <livewire:components.aside.request :request="$request" :key="$request->id" />
+        <livewire:components.aside.request :request="$request" :key="$request->id"/>
       @endforeach
     </ul>
   </div>

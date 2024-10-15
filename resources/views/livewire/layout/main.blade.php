@@ -11,9 +11,16 @@
       </div>
     </div>
   @else
-    {{-- @foreach ($openedTabs as $key => $tab)
-      <livewire:layout.tabs :tab="$tab" :key="$key" />
-    @endforeach --}}
-    @dump($openedTabs)
+    <div class="flex space-x-4">
+      @foreach ($openedTabs as $index => $tab)
+        <div class="relative">
+          <button wire:click="selectTab({{ $index }})"
+            class="px-4 py-2 {{ $activeTab === $index ? 'bg-blue-500 text-white' : 'bg-gray-200' }}">
+            {{ $tab['title'] }}
+          </button>
+          <button wire:click="closeTab({{ $index }})" class="absolute top-0 right-0 text-red-600">x</button>
+        </div>
+      @endforeach
+    </div>
   @endif
 </div>

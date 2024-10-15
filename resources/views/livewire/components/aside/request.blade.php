@@ -1,6 +1,6 @@
 <!-- Request -->
 {{-- @dd($request->method) --}}
-<li wire:click.stop="$dispatch('openTab', { id: {{ $request->id }}, type: 'request' })" class="relative"
+<li wire:click.stop="$dispatch('openTab', { id: {{ $request->id }}, type: 'request', title: '{{ $request->title }}' })" class="relative"
   x-data='{ open_{{ $request->id }} : false }'>
   <div
     class="flex w-full py-0.5 select-none hover:cursor-pointer group/request hover:bg-slate-300 hover:dark:bg-slate-600"

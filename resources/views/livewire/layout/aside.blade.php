@@ -11,7 +11,7 @@
     <div class="py-4">
       <ul>
         @foreach ($requestsLists as $requestsList)
-          <livewire:components.aside.request-list :requestsList="$requestsList" :key="$requestsList->id" />
+          <livewire:components.aside.request-list :requestsList="$requestsList" :key="$requestsList->id"/>
         @endforeach
       </ul>
     </div>
