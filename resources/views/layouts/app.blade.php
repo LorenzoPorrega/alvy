@@ -26,22 +26,21 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="flex h-screen">
+<body class="dark flex h-screen">
+  <!-- Sidebar -->
   <livewire:layout.aside />
+  <!-- End Sidebar -->
   <div class="dark flex flex-col flex-1 overflow-hidden">
+    <!-- Navbar -->
     <livewire:layout.navigation />
+    <!-- End Navbar -->
+    <!-- Main -->
+    <livewire:layout.main />
+    <!-- End Main -->
+
     {{-- <livewire:layout.request-tab /> --}}
-    <livewire:layout.tabs /> <!-- Il tuo nuovo componente per le tabs -->
-    {{-- <main class="flex-1 overflow-x-hidden overflow-y-auto">
-      @if (isset($header))
-        <header class="bg-white dark:bg-gray-900 shadow">
-          <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-            {{ $header }}
-          </div>
-        </header>
-      @endif
-      {{ $slot }}
-    </main> --}}
+    {{-- <livewire:layout.tab /> <!-- Il tuo nuovo componente per le tabs --> --}}
+    {{-- {{ $slot }} --}}
   </div>
 </body>
 

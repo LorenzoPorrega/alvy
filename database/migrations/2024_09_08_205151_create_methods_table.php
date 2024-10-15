@@ -13,7 +13,7 @@ class CreateMethodsTable extends Migration
     {
         Schema::create('methods', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('type');
             $table->string('bg_color');
             $table->string('text_color');
             $table->string('dark_bg_color');

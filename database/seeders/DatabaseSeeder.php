@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
 
     // Create a test user
     User::factory()->create([
-      'name' => 'Test User',
-      'email' => 'test@example.com',
+      'name' => 'Demo User',
+      'email' => 'demo@demo.com',
     ]);
 
     // Create two lists

@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root{
-  --honey-yellow: rgb(250, 154, 0);
-} */
+:root{
+  --livewire-progress-bar-color: #fa9a00;
+}
 
 #nprogress .bar {
   background: #fa9a00 !important;
