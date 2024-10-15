@@ -13,7 +13,7 @@
   @else
     <div class="flex overflow-x-scroll overscroll-x-none no-scrollbar">
       @foreach ($openedTabs as $tabId => $tab)
-        <div class="relative border-r border-solid border-gray-50 dark:border-gray-700 group/tab">
+        <div class="relative h-full border-r border-solid border-gray-50 dark:border-gray-700 group/tab">
           <button wire:click.stop="selectTab({{ $tabId }})"
             class="px-4 py-2 max-w-40 flex text-gray-800 dark:text-gray-200 hover:bg-slate-300 hover:dark:bg-slate-600 {{ $activeTab === $tabId ? 'bg-gray-50 dark:bg-gray-800' : '' }}">
             @if ($tab['method'])
