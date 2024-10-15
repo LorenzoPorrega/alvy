@@ -14,7 +14,7 @@ class Main extends Component
   public $activeTab = null;
 
   #[On('openTab')]
-  public function openTab($id, $type, $title)
+  public function openTab($id, $type, $title, $method = null)
   {
     $isPresent = false;
     $count = 1;
@@ -30,7 +30,8 @@ class Main extends Component
       $this->openedTabs[$count] = [
         'id' => $id,
         'type' => $type,
-        'title' => $title
+        'title' => $title,
+        'method' => $method,
       ];
       $this->activeTab = $count;
     }
@@ -39,12 +40,25 @@ class Main extends Component
   #[On('closeTab')]
   public function closeTab($tabId)
   {
-    if ($tabId == $this->activeTab) {
-      unset($this->openedTabs[$tabId]);
-      $this->openedTabs = array_values($this->openedTabs);
+    if ($this->activeTab === $tabId) {
+      if (isset($this->openedTabs[$tabId + 1])) {
+        $this->activeTab = $tabId + 1;
+      } elseif (isset($this->openedTabs[$tabId - 1])) {
+        $this->activeTab = $tabId - 1;
+      } else {
+        $this->activeTab = null;
+      }
     }
-    else {
-      
+
+    unset($this->openedTabs[$tabId]);
+    $this->openedTabs = array_values($this->openedTabs);
+
+    if (isset($this->activeTab) && $this->activeTab >= count($this->openedTabs)) {
+      $this->activeTab = count($this->openedTabs) - 1;
+    }
+
+    if (count($this->openedTabs) === 0) {
+      $this->activeTab = null;
     }
   }
 
