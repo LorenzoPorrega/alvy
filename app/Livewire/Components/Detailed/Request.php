@@ -7,6 +7,8 @@ use Livewire\Component;
 
 class Request extends Component
 {
+  public $tabId;
+  public $activeTab;
 
   public function render()
   {

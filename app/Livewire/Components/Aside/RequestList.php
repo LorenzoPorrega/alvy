@@ -5,11 +5,14 @@ namespace App\Livewire\Components\Aside;
 use App\Models\RequestList as ModelsRequestList;
 use App\Models\Request as Request;
 use Illuminate\Support\Facades\Auth;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Reactive;
 use Livewire\Component;
 
 class RequestList extends Component
 {
   public $requestsList;
+  public $requestsListTitle;
   public $requests = [];
 
   public function mount(ModelsRequestList $requestsList)
@@ -29,8 +32,18 @@ class RequestList extends Component
   //   }
   // }
 
+  #[On('updateTabTitle')]
+  public function updateRequestsListTitle($tabId = null, $requestsListId, $title)
+  {
+    if ($this->requestsList->id == $requestsListId) {
+      $this->requestsList->title = $title;
+      $this->requestsListTitle = $title;
+    }
+  }
+
+
   public function render()
   {
-    return view('livewire.components.aside.request-list');
+    return view('livewire.components.aside.request-list', ['requestsListTitle' => $this->requestsListTitle]);
   }
 }

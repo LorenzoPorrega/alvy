@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Layout;
 
+use App\Models\Method;
 use Livewire\Component;
 use Livewire\Attributes\On;
 use Livewire\Attributes\Locked;
@@ -12,6 +13,12 @@ class Main extends Component
 {
   public $openedTabs = [];
   public $activeTab = null;
+  public $method;
+
+  public function mount()
+  {
+    $this->method = Method::where('type',)->first();;
+  }
 
   #[On('openTab')]
   public function openTab($id, $type, $title, $method = null)
@@ -35,6 +42,8 @@ class Main extends Component
       ];
       $this->activeTab = $count;
     }
+    // // TODO: revise
+    // $this->dispatch('activeTabUpdated', $this->activeTab);
   }
 
   #[On('closeTab')]
@@ -60,12 +69,22 @@ class Main extends Component
     if (count($this->openedTabs) === 0) {
       $this->activeTab = null;
     }
+    // // TODO: revise
+    // $this->dispatch('activeTabUpdated', $this->activeTab);
   }
 
+  // TODO: revise
   #[On('selectTab')]
   public function selectTab($index)
   {
     $this->activeTab = $index;
+    // $this->dispatch('activeTabUpdated', $this->activeTab);
+  }
+
+  #[On('updateTabTitle')]
+  public function updateTabTitle($tabId, $requestsListId = null, $title)
+  {
+    $this->openedTabs[$tabId]['title'] = $title;
   }
 
   public function render()

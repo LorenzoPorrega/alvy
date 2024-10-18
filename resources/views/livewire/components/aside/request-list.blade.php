@@ -19,7 +19,7 @@
       </svg>
     </div>
 
-    <span class="w-full ml-2 text-left py-1">{{ $requestsList->title }}</span>
+    <span class="w-full ml-2 text-left py-1 truncate">{{ $requestsList->title }}</span>
 
   </button>
 
