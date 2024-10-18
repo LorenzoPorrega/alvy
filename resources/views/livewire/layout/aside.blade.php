@@ -10,7 +10,7 @@
     
     <div class="py-4">
       <ul>
-        @dd($requestsLists)
+        {{-- @dd($requestsLists) --}}
         @foreach ($requestsLists as $requestsList)
           <livewire:components.aside.request-list :requestsList="$requestsList" :key="$requestsList->id"/>
         @endforeach
