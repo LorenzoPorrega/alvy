@@ -1,0 +1,20 @@
+Alvy HTTP web-based API client
+
+  - User can create a request
+  - Request can be ran
+  - Runs show response data
+  - Requests can be saved
+
+  - User can create a request:
+    -- Request has method, url, headers params, query params, body params
+    -- request will be shown as tabs
+    -- request will be collected in collection
+
+  - Requests can be ran
+    -- running send a HTTP request
+    -- the response is dynamically shown in the request tab
+
+  - Request can be saved
+    -- before closing the browser the user is called to saved
+       the request so that path and params are not deleted
+    -- saved requests will be saved in local DB

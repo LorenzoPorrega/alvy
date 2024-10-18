@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+  --livewire-progress-bar-color: #fa9a00;
+}
+
+#nprogress .bar {
+  background: #fa9a00 !important;
+}
