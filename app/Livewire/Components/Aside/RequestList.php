@@ -15,11 +15,11 @@ class RequestList extends Component
   public $requestsListTitle;
   public $requests = [];
 
-  public function mount(ModelsRequestList $requestsList)
+  public function mount()
   {
-    $userId = Auth::id();
-    $this->requestsList = $requestsList;
-    $this->requests = Request::where('requests_list_id', $requestsList->id)->get();
+    // $userId = Auth::id();
+    // $this->requestsList = $requestsList;
+    $this->requests = Request::where('requests_list_id', $this->requestsList->id)->get();
     // $this->expandedRequestsLists = DB::table('ui_state')->where('user_id', $userId)
     //   ->value('expanded_requestslists');
   }
